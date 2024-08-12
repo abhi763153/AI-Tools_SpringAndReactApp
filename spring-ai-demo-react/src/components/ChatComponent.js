@@ -11,7 +11,7 @@ function ChatComponent() {
             console.log(data);
             setChatResponse(data);
         } catch (error) {
-            console.error("Error generating image : ", error)
+            console.error("Error generating response : ", error)
         }
     };
 
