@@ -8,6 +8,7 @@ function ImageGenerator() {
         try {
             const response = await fetch(`http://localhost:8080/generate-image?prompt=${prompt}`)
             const urls = await response.json();
+            console.log(urls);
             setImageUrls(urls);
         } catch (error) {
             console.error("Error generating image : ", error)
@@ -26,9 +27,9 @@ function ImageGenerator() {
             <button onClick={generateImage}>Generate Image</button>
 
             <div className="image-grid">
-                {imageUrls.map((url, index) => {
+                {imageUrls.map((url, index) => (
                     <img key={index} src={url} alt={`Generated ${index}`} />
-                })}
+                ))}
                 {[...Array(4 - imageUrls.length)].map((_, index) => (
                     <div key={index + imageUrls.length}
                         className="empty-image-slot"></div>
