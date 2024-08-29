@@ -1,4 +1,4 @@
-This is the Official repository of **Java Spring Boot: Professional eCommerce Project Masterclass** on Udemy
+This is the Official repository of **Java Spring AI Demo: Stock Photogenerator app and Recipie Maker** on Udemy
 
 # The Ultimate Java and Spring Boot Mastery
 
