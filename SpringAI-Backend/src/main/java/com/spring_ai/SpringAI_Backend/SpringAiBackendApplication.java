@@ -1,13 +1,13 @@
-package com.ai.SpringAiDemo;
+package com.spring_ai.SpringAI_Backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringAiDemoApplication {
+public class SpringAiBackendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringAiDemoApplication.class, args);
+		SpringApplication.run(SpringAiBackendApplication.class, args);
 	}
 
 }

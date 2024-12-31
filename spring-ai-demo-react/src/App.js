@@ -22,15 +22,11 @@ function App() {
       onClick={() => handleTabChange('chat')}>
         Ask AI
         </button>
-      <button className={activeTab === 'recipe-generator' ? 'active' : ''}
-      onClick={() => handleTabChange('recipe-generator')}>
-        Recipe Generator
-        </button>
+      
 
         <div>
           {activeTab === 'image-generator' && <ImageGenerator/>}
           {activeTab === 'chat' && <ChatComponent/>}
-          {activeTab === 'recipe-generator' && <RecipeGenerator/>}
         </div>
     </div>
   );

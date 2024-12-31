@@ -8,7 +8,6 @@ function ChatComponent() {
         try {
             const response = await fetch(`http://localhost:8080/ask-ai?prompt=${prompt}`)
             const data = await response.text();
-            console.log(data);
             setChatResponse(data);
         } catch (error) {
             console.error("Error generating response : ", error)

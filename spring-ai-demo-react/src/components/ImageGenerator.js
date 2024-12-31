@@ -2,16 +2,25 @@ import React, { useState } from "react";
 
 function ImageGenerator() {
     const [prompt, setPrompt] = useState('');
-    const [imageUrls, setImageUrls] = useState([]);
+    const [imageUrl, setImageUrl] = useState(''); // Store image URL or Blob
 
     const generateImage = async () => {
         try {
-            const response = await fetch(`http://localhost:8080/generate-image?prompt=${prompt}`)
-            const urls = await response.json();
-            console.log(urls);
-            setImageUrls(urls);
+            // Make the GET request and receive the image as a Blob
+            const response = await fetch(`http://localhost:8080/generate-image?prompt=${prompt}`);
+
+            // Check if the response is successful
+            if (response.ok) {
+                const imageBlob = await response.blob(); // Get the response as Blob
+                const imageObjectUrl = URL.createObjectURL(imageBlob); // Create a URL for the Blob
+
+                // Set the image URL to the state
+                setImageUrl(imageObjectUrl);
+            } else {
+                console.error("Error generating image: ", response.status);
+            }
         } catch (error) {
-            console.error("Error generating image : ", error)
+            console.error("Error generating image: ", error);
         }
     };
 
@@ -27,13 +36,8 @@ function ImageGenerator() {
             <button onClick={generateImage}>Generate Image</button>
 
             <div className="image-grid">
-                {imageUrls.map((url, index) => (
-                    <img key={index} src={url} alt={`Generated ${index}`} />
-                ))}
-                {[...Array(4 - imageUrls.length)].map((_, index) => (
-                    <div key={index + imageUrls.length}
-                        className="empty-image-slot"></div>
-                    ))}
+                {/* Conditionally render the image if available */}
+                {imageUrl && <img src={imageUrl} alt="Generated Image" />}
             </div>
         </div>
     );
