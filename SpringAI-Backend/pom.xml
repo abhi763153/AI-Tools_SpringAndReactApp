@@ -47,6 +47,14 @@
 			<version>20240303</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/com.assemblyai/assemblyai-java -->
+		<dependency>
+			<groupId>com.assemblyai</groupId>
+			<artifactId>assemblyai-java</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>

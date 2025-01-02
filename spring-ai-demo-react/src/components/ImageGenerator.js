@@ -33,7 +33,8 @@ function ImageGenerator() {
                 onChange={(e) => setPrompt(e.target.value)}
                 placeholder="Enter prompt for image"
             />
-            <button onClick={generateImage}>Generate Image</button>
+            <button onClick={generateImage}>Generate Image</button> 
+
 
             <div className="image-grid">
                 {/* Conditionally render the image if available */}

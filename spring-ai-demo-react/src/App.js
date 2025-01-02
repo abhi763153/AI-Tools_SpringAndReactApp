@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import ImageGenerator from './components/ImageGenerator';
 import ChatComponent from './components/ChatComponent';
-import RecipeGenerator from './components/RecipeGenerator';
+import Transcriber from './components/Transcriber';
 
 function App() {
   const [activeTab, setActiveTab] = useState('image-generator');
@@ -22,11 +22,18 @@ function App() {
       onClick={() => handleTabChange('chat')}>
         Ask AI
         </button>
+
+      <button  className={activeTab === 'transcriber' ? 'active' : ''}
+      onClick={() => handleTabChange('transcriber')}>
+        Transcriber
+        </button>
       
 
         <div>
           {activeTab === 'image-generator' && <ImageGenerator/>}
           {activeTab === 'chat' && <ChatComponent/>}
+          {activeTab === 'transcriber' && <Transcriber/>}
+
         </div>
     </div>
   );
