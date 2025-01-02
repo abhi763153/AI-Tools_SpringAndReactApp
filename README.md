@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 This is the Official repository of **Java Spring AI Demo: Stock Photogenerator app and Recipie Maker** on Udemy
 
 # The Ultimate Java and Spring Boot Mastery
@@ -76,6 +77,8 @@ Thank you for respecting these guidelines and helping us maintain the integrity 
 
 - **Email:** [embarkxofficial@gmail.com](mailto:embarkxofficial@gmail.com)
 - **Website:** [www.embarkx.com](http://www.embarkx.com)
+=======
+>>>>>>> 23303a235564f7a6c19b7b06dadb7cd30a78054f
 
 =======
 # AI-Tools_SpringAndReactApp
