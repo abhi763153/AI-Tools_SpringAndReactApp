@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 public class RestControllerAI {
@@ -31,8 +32,8 @@ public class RestControllerAI {
         return imageService.getImageUrl(prompt);
     }
 
-    @GetMapping("/transcriber") // Matches the endpoint "/ask-ai"
-    public String getResponse() throws Exception {
-        return transcriberService.getResponse();
+    @PostMapping("/transcriber") // Matches the endpoint "/ask-ai"
+    public String getResponse(@RequestParam("audioFile") MultipartFile audioFile) throws Exception {
+        return transcriberService.getResponse(audioFile);
     }
 }

@@ -4,6 +4,7 @@ import com.assemblyai.api.resources.transcripts.types.*;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class TranscriberService {
@@ -12,7 +13,7 @@ public class TranscriberService {
     @Value("${assemblyai.api.key}")
     private String api_key;
 
-    public String getResponse() throws Exception{
+    public String getResponse(MultipartFile audioFile) throws Exception{
 
         AssemblyAI client = AssemblyAI.builder()
                 .apiKey(api_key)
@@ -29,15 +30,15 @@ public class TranscriberService {
         */
 
         // Or use a publicly-accessible URL:
-        String audioUrl = "https://assembly.ai/sports_injuries.mp3";
-        Transcript transcript = client.transcripts().transcribe(audioUrl, params);
+//        String audioUrl = "https://assembly.ai/sports_injuries.mp3";
+        Transcript transcript = client.transcripts().transcribe(audioFile.getInputStream(), params);
 
         if (transcript.getStatus().equals(TranscriptStatus.ERROR)) {
             System.err.println(transcript.getError().get());
             System.exit(1);
         }
 
-        System.out.println(transcript.getText().get());
+//        System.out.println(transcript.getText().get());
 
         transcript.getUtterances().get().forEach(utterance ->
                 System.out.println("Speaker " + utterance.getSpeaker() + ": " + utterance.getText())

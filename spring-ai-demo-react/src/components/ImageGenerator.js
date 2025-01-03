@@ -38,7 +38,8 @@ function ImageGenerator() {
 
             <div className="image-grid">
                 {/* Conditionally render the image if available */}
-                {imageUrl && <img src={imageUrl} alt="Generated Image" />}
+                {imageUrl ? (<img src={imageUrl} alt="Generated Image" />) : (<p>No image generated yet.</p>)}
+                
             </div>
         </div>
     );
