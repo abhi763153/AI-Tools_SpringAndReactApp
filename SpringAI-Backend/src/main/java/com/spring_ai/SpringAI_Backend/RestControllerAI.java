@@ -19,6 +19,9 @@ public class RestControllerAI {
     @Autowired
     TranscriberService transcriberService;
 
+    @Autowired
+    TextToSpeechService textToSpeechService;
+
     @GetMapping("/ask-ai") // Matches the endpoint "/ask-ai"
     public String getResponse(@RequestParam("prompt") String prompt) {
         return chatService.getResponse(prompt);
@@ -33,7 +36,15 @@ public class RestControllerAI {
     }
 
     @PostMapping("/transcriber") // Matches the endpoint "/ask-ai"
-    public String getResponse(@RequestParam("audioFile") MultipartFile audioFile) throws Exception {
+    public String getTextFromAudio(@RequestParam("audioFile") MultipartFile audioFile) throws Exception {
         return transcriberService.getResponse(audioFile);
     }
+
+    @GetMapping("text-to-speech")
+    public ResponseEntity<?> getSpeech(@RequestParam("text") String text){
+        System.out.println(textToSpeechService.generateSpeech(text));
+        return textToSpeechService.generateSpeech(text);
+    }
+
+
 }
