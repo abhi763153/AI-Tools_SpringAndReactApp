@@ -40,9 +40,9 @@ public class TranscriberService {
 
 //        System.out.println(transcript.getText().get());
 
-        transcript.getUtterances().get().forEach(utterance ->
-                System.out.println("Speaker " + utterance.getSpeaker() + ": " + utterance.getText())
-        );
+//        transcript.getUtterances().get().forEach(utterance ->
+//                System.out.println("Speaker " + utterance.getSpeaker() + ": " + utterance.getText())
+//        );
 
 
         return transcript.getText().orElse("No transcription available");

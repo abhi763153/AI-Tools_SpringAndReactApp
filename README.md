@@ -1,1 +1,1 @@
-This applicaiontion has multiple AI-Powered features
+We will deploy this apps on AWS

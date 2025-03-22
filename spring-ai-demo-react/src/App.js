@@ -3,6 +3,7 @@ import './App.css';
 import ImageGenerator from './components/ImageGenerator';
 import ChatComponent from './components/ChatComponent';
 import Transcriber from './components/Transcriber';
+import TextToSpeech from './components/TextToSpeech.js';
 
 function App() {
   const [activeTab, setActiveTab] = useState('image-generator');
@@ -28,12 +29,17 @@ function App() {
         Transcriber
         </button>
       
+      <button  className={activeTab === 'TextToSpeech' ? 'active' : ''}
+      onClick={() => handleTabChange('TextToSpeech')}>
+        Text To Speech
+        </button>
+      
 
         <div>
           {activeTab === 'image-generator' && <ImageGenerator/>}
           {activeTab === 'chat' && <ChatComponent/>}
           {activeTab === 'transcriber' && <Transcriber/>}
-
+          {activeTab === 'TextToSpeech' && <TextToSpeech/>}
         </div>
     </div>
   );
