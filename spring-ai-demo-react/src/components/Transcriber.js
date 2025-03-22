@@ -25,7 +25,7 @@ function Transcriber() {
 
     try {
       setLoading(true); // Start loading
-      const response = await fetch("http://localhost:8080/transcriber", {
+      const response = await fetch("/api/transcriber", {
         method: "POST",
         body: formData,
       });

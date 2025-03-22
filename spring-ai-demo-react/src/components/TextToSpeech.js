@@ -6,7 +6,7 @@ function ChatComponent() {
 
     const askAI = async () => {
         try {
-            const response = await fetch(`http://localhost:8080/text-to-speech?text=${encodeURIComponent(prompt)}`);
+            const response = await fetch(`/api/text-to-speech?text=${encodeURIComponent(prompt)}`);
             if (!response.ok) throw new Error("Failed to fetch audio");
 
             const blob = await response.blob();

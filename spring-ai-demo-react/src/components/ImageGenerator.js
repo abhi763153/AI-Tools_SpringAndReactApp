@@ -7,7 +7,7 @@ function ImageGenerator() {
     const generateImage = async () => {
         try {
             // Make the GET request and receive the image as a Blob
-            const response = await fetch(`http://localhost:8080/generate-image?prompt=${prompt}`);
+            const response = await fetch(`/api/generate-image?prompt=${prompt}`);
 
             // Check if the response is successful
             if (response.ok) {
